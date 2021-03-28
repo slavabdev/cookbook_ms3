@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,600;1,700&family=Roboto:wght@400;700&family=Train+One&display=swap');
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Navigation*/
+
+
+
+nav.nav-extended .nav-wrapper{
+    min-height: 75px;
+}
+.logo_img {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.brand-logo {
+    margin-left: 20px;
+}
+
+.sidenav {
+    width: 50%;
+}
+
+.sidenav-trigger i {
+    color: #212121;
+}
+
+.sidenav-trigger i:hover {
+    color: #ffd977;
+    transition: all 0.3s;
+}
+
+nav ul a {
+    color: #212121;
+    text-transform: uppercase;
+    font-family: 'Train One', sans-serif;
+    font-size: 1.2rem;
+}
+nav ul a:hover{
+    background-color: #ffd977;
+}
+
+
+.sidenav li>a {
+    text-align: center;
+    color: #212121;
+    text-transform: uppercase;
+    font-family: 'Train One', sans-serif;
+    font-size: 2rem;
+    padding-top: 20px;
+    line-height: 6px;
+}
+
+.sidenav .logo_img {
+    margin: 0 auto;
+    display: block;
+}
+
+.sidenav li>a:hover{
+    background-color: #ffd977;
+}
+
+nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+    line-height: 75px;
+}
