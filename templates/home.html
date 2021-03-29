@@ -1,6 +1,27 @@
 {% extends 'base.html'%}
 {% block content%}
 
-<h3>HOWAYA</h3>
+<!--Slider-->
+
+            <div class="slider">
+                <ul class="slides transparent">
+                    <li>
+                        <img class="img-responsive" src="{{ url_for('static', filename='img/slider.jpg') }}">
+                        <div class="caption left-align">
+                            <h3>This is our big Tagline!</h3>
+                            <p class="light grey-text text-lighten-3">Here's our small slogan.</p>
+                            <a class="waves-effect waves-light btn"> button <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </li>
+                    <li>
+                        <img class="img-responsive" src="{{ url_for('static', filename='img/slider2.jpg') }}">
+                        <div class="caption left-align">
+                            <h3>Left Aligned Caption</h3>
+                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <a class="btn"> button <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
 {%endblock%}
