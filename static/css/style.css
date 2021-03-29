@@ -71,3 +71,28 @@ nav ul a:hover{
 nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     line-height: 75px;
 }
+
+/*Slider*/
+.slider img {
+    object-fit: cover;
+    filter: brightness(.4);
+}
+
+.slider-img {
+    width: 100%;
+    height: auto;
+    
+}
+
+
+
+.slider .indicators .indicator-item.active {
+    background-color: #ffd977;
+}
+
+.btn {
+   background-color: #ffd977; 
+}
+
+
+/*Footer*/
