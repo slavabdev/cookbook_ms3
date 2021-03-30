@@ -21,8 +21,14 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
+    pop_recipes = list(mongo.db.recipes.find().sort([('count', -1)]))
+    return render_template('home.html', pop_recipes=pop_recipes)
+
+
+@app.route('/recipes')
+def recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template('home.html', recipes=recipes)
+    return render_template('recipes.html', recipes=recipes)
 
 
 if __name__ == '__main__':

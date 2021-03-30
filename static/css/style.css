@@ -97,6 +97,7 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
    text-transform: uppercase;
    font-family: 'Roboto', sans-serif;
    font-weight: 700;
+   font-size: 16px;
 }
 
 .btn:hover {
@@ -182,3 +183,27 @@ footer ul {
 .card .card-reveal {
     top: 99%;
 }
+
+.btn_container {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn_container>.btn {
+    font-size: 24px;
+}
+
+/*Top desserts*/
+
+
+#popular .card .card-content p {
+    margin-top: 10px;
+    margin-bottom: 15px; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+
+   

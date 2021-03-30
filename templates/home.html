@@ -30,8 +30,8 @@
                 </ul>
             </div>
 
-    <!--Category Section-->
-    
+            <!--Category Section-->
+
             <section id="categories">
                 <h2 class="section_heading">Categories</h2>
 
@@ -92,17 +92,36 @@
 
                                 </div>
                             </div>
+                            <div class="btn_container">
+                                <a href="#" class="btn btn_all">View all recipes</a>
+                            </div>
+
                         </section>
 
-                        <section class="popular">
+                        <!--Top recipe section-->
+
+                        <section id="popular">
                             <h2 class="section_heading">Top rated</h2>
-                            {% for recipe in recipes %} <br>
-                                {{recipe.category_name}} <br>
-                                {{recipe.recipe_title}} <br>
-                                {{recipe.cook_time}} <br>
-                                {{recipe.description}} <br>
-                                {{recipe.ingredients}} <br>
-                                {{recipe.method}} <br>
-                            {% endfor %}
-                        </section>
-                    {% endblock %}
+                            {% for recipe in pop_recipes %}
+                            <div class="row">
+                                <div class="col s12 m4">
+                                    <div class="card">
+                                        <div class="card-image waves-block waves-light">
+                                            <img class="activator" src="{{recipe.image_url}}"></div>
+                                            <div class="card-content">
+                                                <span class="card-title grey-text text-darken-4"> {{recipe.recipe_title}}
+                                                </span>
+                                                <p class="recipe_descr">
+                                                    {{recipe.description}}
+                                                </p>
+                                                <p>
+                                                    <a class="btn" href="#">Check more {{recipe.category_name}} </a>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </section>
+                        {% endblock %}
