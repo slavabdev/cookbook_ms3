@@ -1,27 +1,108 @@
-{% extends 'base.html'%}
-{% block content%}
+{% extends 'base.html' %}
+{% block content %}
 
-<!--Slider-->
+    <!--Slider-->
 
-            <div class="slider">
-                <ul class="slides transparent">
-                    <li>
-                        <img class="img-responsive" src="{{ url_for('static', filename='img/slider.jpg') }}">
-                        <div class="caption left-align">
-                            <h3>This is our big Tagline!</h3>
-                            <p class="light grey-text text-lighten-3">Here's our small slogan.</p>
-                            <a class="waves-effect waves-light btn"> button <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <img class="img-responsive" src="{{ url_for('static', filename='img/slider2.jpg') }}">
+    <div class="slider">
+        <ul class="slides transparent">
+            <li>
+                <img class="img-responsive" src="{{ url_for('static', filename='img/slider.jpg') }}">
+                    <div class="caption left-align">
+                        <h3>This is our big Tagline!</h3>
+                        <p class="light grey-text text-lighten-3">Here's our small slogan.</p>
+                        <a class="waves-effect waves-light btn">
+                            button
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <img class="img-responsive" src="{{ url_for('static', filename='img/slider2.jpg') }}">
                         <div class="caption left-align">
                             <h3>Left Aligned Caption</h3>
                             <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                            <a class="btn"> button <i class="fas fa-chevron-right"></i></a>
+                            <a class="btn">
+                                button
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
                         </div>
                     </li>
                 </ul>
             </div>
 
-{%endblock%}
+    <!--Category Section-->
+    
+            <section id="categories">
+                <h2 class="section_heading">Categories</h2>
+
+                <div class="row">
+                    <div class="col m4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="#"></div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i>
+                                    </span>
+                                    <p>
+                                        <a href="#">This is a link</a>
+                                    </p>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i>
+                                    </span>
+                                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col m4">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="#"></div>
+                                    <div class="card-content">
+                                        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i>
+                                        </span>
+                                        <p>
+                                            <a href="#">This is a link</a>
+                                        </p>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i>
+                                        </span>
+                                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col m4">
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" src="#"></div>
+                                        <div class="card-content">
+                                            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i>
+                                            </span>
+                                            <p>
+                                                <a href="#">This is a link</a>
+                                            </p>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i>
+                                            </span>
+                                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="popular">
+                            <h2 class="section_heading">Top rated</h2>
+                            {% for recipe in recipes %} <br>
+                                {{recipe.category_name}} <br>
+                                {{recipe.recipe_title}} <br>
+                                {{recipe.cook_time}} <br>
+                                {{recipe.description}} <br>
+                                {{recipe.ingredients}} <br>
+                                {{recipe.method}} <br>
+                            {% endfor %}
+                        </section>
+                    {% endblock %}
