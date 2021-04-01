@@ -24,6 +24,29 @@ def home():
     pop_recipes = list(mongo.db.recipes.find().sort([('count', -1)]))
     return render_template('home.html', pop_recipes=pop_recipes)
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # check if username already exists
+        existing_user = mongo.db.users.find_one(
+            {'username': request.form.get('username').lower()})
+
+        if existing_user:
+            flash('This username is already exists')
+            return redirect(url_for('register'))
+
+        register = {
+            'username': request.form.get('username').lower(),
+            'password': generate_password_hash(request.form.get('password'))
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into session cookie
+        session['user'] = request.form.get('username').lower()
+        flash('Registration successful')
+        return redirect(url_for('profile', username=session['user']))
+    return render_template('register.html')
+
 
 @app.route('/recipes')
 def recipes():

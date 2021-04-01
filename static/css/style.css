@@ -205,5 +205,41 @@ footer ul {
     font-weight: 400;
 }
 
+.recipe_descr{
+  white-space: nowrap; 
+  width: 370px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  
+}
 
-   
+/*All recipes*/
+
+#all_recipes .btn {
+    margin-top: 20px;
+    
+}
+
+.buttons {
+    display:flex;
+    justify-content: flex-end;
+    
+}
+
+.buttons a:first-of-type {
+    margin-right: auto;
+}
+
+.buttons .btn_ed{
+margin-right:10px;
+margin-left:10px;
+color: #ffd977;
+}
+
+.buttons .btn_ed:hover {
+    color: #fafafa
+}
+
+.buttons .btn_del{
+    color: red;
+}
