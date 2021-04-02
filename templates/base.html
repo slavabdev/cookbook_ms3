@@ -37,7 +37,7 @@
                                 <a href="{{ url_for('register') }}">Register</a>
                             </li>
                              <li>
-                                <a href="#">Login</a>
+                                <a href="{{ url_for('login') }}">Login</a>
                             </li>
                             <li>
                                 <a href="#">Logout</a>
@@ -62,7 +62,7 @@
                                 <a href="{{ url_for('register') }}">Register</a>
                             </li>
                              <li>
-                                <a href="#">Login</a>
+                                <a href="{{ url_for('login') }}">Login</a>
                             </li>
                             <li>
                                 <a href="#">Logout</a>
@@ -75,9 +75,12 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                {% for message in messages %} 
-                <div class="row flashes">
-                    <h4 class="flash_text">{{ message }}</h4>
+                <div class="row flashes center">
+                    <h3 class="flash_text">{{ message }}</h3>
+                    
+                    <a class="close" href=""><i class="fas fa-times" οnclick="close_flash_message()"> </i></a>
                 </div>
+                 
                {% endfor %}
             {% endif %}
         {% endwith %}
