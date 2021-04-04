@@ -5,10 +5,14 @@
 
     <h3>Your recipes below</h3>
 
-    {% if recipes.author == session['user'] %}
 
-        {% for recipe in recipes %}
-            <div class="container">
+            <div class="new_container">
+
+            <div class="profile_btn">
+                <a class="btn" href="{{ url_for('new_recipe') }}">Add recipe <i class="fas fa-plus-circle"></i></a>
+            </div>
+                {% for recipe in user_recipes %}
+                    {% if recipe %}
                 <div class="row">
                     <div class="col s12">
                         <div class="card">
@@ -35,11 +39,11 @@
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                
 
             {% else %}
                 <p>no recipes yet</p>
 
             {% endif %}
-
+            {% endfor %}
         {% endblock %}
