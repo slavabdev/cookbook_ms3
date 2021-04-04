@@ -108,13 +108,13 @@ def new_recipe():
             recipe = {
                 'category': request.form.get('category_name'),
                 'recipe_title': request.form.get('recipe_title'),
-                'cooking time': int(request.form.get('cook_time')),
+                'cook_time': request.form.get('cook_time'),
                 'description': request.form.get('description'),
-                'ingredients': request.form.getlist('ingredients'),
-                'method': request.form.getlist('method'),
-                'img_url': request.form.get('img_url'),
+                'ingredients': request.form.get('ingredients'),
+                'method': request.form.get('method'),
+                'image_url': request.form.get('image_url'),
                 'count': 0,
-                'added by': session['user']
+                'author': session['user']
             }
             mongo.db.recipes.insert_one(recipe)
             flash('Your recipe successfully added!')
