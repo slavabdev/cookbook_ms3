@@ -16,6 +16,7 @@ body {
     margin: 0 auto;
 }
 
+
 /*Navigation*/
 
 
@@ -222,13 +223,23 @@ footer ul {
 
 /*Top desserts*/
 
-
+#categories .card-image img {
+  max-width: 100%;
+  height: auto
+ 
+}
 
 .card-image img {
-  max-width: 100%;
-  max-height: 400px;
+  width: auto;
+  height: 400px;
   object-fit: cover;
+
  
+}
+.card .card-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
 }
 
 #popular .card .card-content p {
@@ -257,6 +268,7 @@ footer ul {
 .buttons {
     display:flex;
     justify-content: flex-end;
+    margin-top: 1rem;
     
 }
 

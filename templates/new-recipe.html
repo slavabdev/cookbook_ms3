@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-  <h3 class="section_heading">Add your recipe</h3>
+  <h3 class="section_heading">Add your recipe</h3> <br>
 
 <div class="container">
 <!-- Task Category -->
@@ -76,7 +76,7 @@
        <!-- image -->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
+          <i class="far fa-image prefix"></i>
           <input id="image_url" name="image_url" minlength="5"  
           type="text" class="validate" required>
           <label for="image_url">Image url</label>
@@ -86,7 +86,7 @@
       <!-- Submit button -->
       <div class="row">
           <div class="col s12 center-align">
-              <button type="submit" class="btn-large orange darken-4 text-shadow">
+              <button type="submit" class="btn">
                   Add recipe <i class="fas fa-plus-square right"></i>
               </button>
           </div>

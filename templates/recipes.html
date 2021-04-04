@@ -4,7 +4,7 @@
     <section id="all_recipes">
         <h2 class="section_heading">All recipes</h2>
         
-            <div class="container">
+            <div class="new_container">
                 {% for recipe in recipes %}
                 <div class="row">
                     <div class="col s12">
@@ -22,11 +22,6 @@
                                     <div class="buttons">
                                         <a class="btn btn_view" href="#">View recipe
                                         </a>
-                                        {% if session.user == recipe.author %}
-                                        <a class="btn btn_ed" href="#">Edit</a>
-                                        <a class="btn btn_del" href="{{ url_for('delete_recipe', recipe_id =recipe._id) }}">Delete
-                                        </a>
-                                        {% endif %}
                                     </div>
                                 </div>
 
