@@ -21,7 +21,8 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def home():
-    pop_recipes = list(mongo.db.recipes.find().sort([('count', -1)]))
+    pop_recipes = list(
+        mongo.db.recipes.find().sort([('count', -1)]).limit(3))
     return render_template('home.html', pop_recipes=pop_recipes)
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -84,29 +85,41 @@ def logout():
     return redirect(url_for('login'))
 
 
+@app.route('/profile/<username>', methods=['GET','POST'])
+def profile(username):
+    # grab the session user's username from the db
+    username = mongo.db.users.find_one(
+        {'username': session['user']})['username']
+    if session['user']:
+        recipes = list(mongo.db.recipes.find())
+        return render_template('profile.html', username=username, recipes=recipes)
+    return redirect(url_for('login'))
+
+
 
 @app.route('/recipes')
 def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template('recipes.html', recipes=recipes)
 
-# @app.route('/new-recipe', methods=['GET', 'POST'])
-# def add_item():
-#     if request.method == 'POST':
-#             recipe = {
-#                 'category': request.form.get('category_name'),
-#                 'recipe_title': request.form.get('recipe_title'),
-#                 'cooking time': int(request.form.get('cook_time')),
-#                 'description': request.form.get('description'),
-#                 'ingredients': request.form.getlist('ingredients'),
-#                 'method': request.form.getlist('method'),
-#                 'img_url': request.form.get('img_url'),
-#                 'count': 0,
-#                 'added by': username
-#                 }
-#             mongo.db.recipes.insert_one(recipe)
-#             return redirect(url_for("recipes")
-#     return render_template('new_recipe.html')
+@app.route('/new-recipe', methods=['GET', 'POST'])
+def new_recipe():
+    if request.method == 'POST':
+            recipe = {
+                'category': request.form.get('category_name'),
+                'recipe_title': request.form.get('recipe_title'),
+                'cooking time': int(request.form.get('cook_time')),
+                'description': request.form.get('description'),
+                'ingredients': request.form.getlist('ingredients'),
+                'method': request.form.getlist('method'),
+                'img_url': request.form.get('img_url'),
+                'count': 0,
+                'added by': session['user']
+            }
+            mongo.db.recipes.insert_one(recipe)
+            flash('Your recipe successfully added!')
+            return redirect(url_for("recipes"))
+    return render_template('new-recipe.html')
 
 
 if __name__ == '__main__':
