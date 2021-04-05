@@ -3,7 +3,7 @@
     <h3>Hi,
         {{ username }}</h3>
 
-    <h3>Your recipes below</h3>
+    <h4>Your recipes below</h4>
 
 
     <div class="new_container">
@@ -13,8 +13,14 @@
                 <i class="fas fa-plus-circle"></i>
             </a>
         </div>
+
+        <!-- {% if recipes|count == 0 %}
+                <p>no recipes yet</p>
+         
+        {% endif %}   -->
         {% for recipe in user_recipes %}
-            {% if recipe %}
+            
+            {% if recipe.author|lower == session['user']|lower %}
                 <div class="row">
                     <div class="col s12">
                         <div class="card">
@@ -35,17 +41,17 @@
                                             <a class="btn btn_ed" href="#">Edit</a>
                                             <a class="btn btn_del modal-trigger" href="#modal1">Delete
                                             </a>
-                                        
-                                        <!-- Modal-->
-                                        <div id="modal1" class="modal">
-                                            <div class="modal-content">
-                                                <h4>Delete recipe</h4>
-                                                <p>Are you sure that you want to delete recipe?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="{{ url_for('delete_recipe', recipe_id =recipe._id) }}" id="delete_recipe" class="modal-close btn">Yes</a>
-                                                <a href="#!" class="modal-close btn">No</a>
-                                            {% endif %} 
+
+                                            <!-- Modal-->
+                                            <div id="modal1" class="modal">
+                                                <div class="modal-content">
+                                                    <h4>Delete recipe</h4>
+                                                    <p>Are you sure that you want to delete recipe?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="{{ url_for('delete_recipe', recipe_id =recipe._id) }}" id="delete_recipe" class="modal-close btn">Yes</a>
+                                                    <a href="#!" class="modal-close btn">No</a>
+                                                {% endif %}
                                             </div>
                                         </div>
 
@@ -55,10 +61,13 @@
 
                             </div>
                         </div>
-                    </div>
-                {% else %}
-                    <p>no recipes yet</p>
 
+                    </div>
+                    
+                    
                 {% endif %}
+                
             {% endfor %}
+                
+               
         {% endblock %}
