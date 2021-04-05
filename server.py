@@ -97,11 +97,11 @@ def profile(username):
     return redirect(url_for('login'))
 
 
-
 @app.route('/recipes')
 def recipes():
-    category = list(mongo.db.recipes.find().sort([("category_name", -1)]))
+    category = list(mongo.db.recipes.find().sort([("category", -1)]))
     recipes = list(mongo.db.recipes.find())
+
     return render_template('recipes.html', recipes=recipes, category=category)
 
 
@@ -161,6 +161,15 @@ def delete_recipe(recipe_id):
 
     flash("Recipe Successfully Deleted")
     return redirect(url_for('profile', username=username))
+
+
+@app.route("/visits/<recipe_id>")
+def visits(recipe_id):
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        count = int(recipes['count'])
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
+            {'$set': {'count': count +1 }})
+        return redirect(url_for('recipe_page', recipe=recipe, recipe_id=recipe_id))
 
 
 if __name__ == '__main__':

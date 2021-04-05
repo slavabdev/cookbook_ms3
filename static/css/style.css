@@ -250,13 +250,13 @@ footer ul {
     font-weight: 400;
 }
 
-.recipe_descr{
+/* .recipe_descr{
   white-space: nowrap; 
   width: 370px; 
   overflow: hidden;
   text-overflow: ellipsis; 
   
-}
+} */
 
 /*All recipes*/
 
@@ -368,3 +368,32 @@ color: #ffd977;
     text-decoration: underline #ffd977;
 
 }
+
+/* Recipe page */
+
+
+.recipe_block_descr {
+    margin-bottom: 25px;
+} 
+
+.recipe_block_header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: underline #ffd977 ;
+}
+.recipe_block_text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #212121;
+}
+
+.recipe_author {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #212121;
+}
+

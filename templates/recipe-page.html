@@ -1,6 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-   <h2> {{ recipe.recipe_title}} </h2>
-   <h2> {{ recipe.category}} </h2>
+   <h2 class="section_heading"> {{ recipe.recipe_title|upper}} </h2>
+
+   <p class="recipe_author">posted by {{ recipe.author|capitalize}}</p>
+   <div class="container">
+       
+   <div class="row">
+       <div class="col s12 m8">
+            <img class="recipe_block_img responsive-img" src="{{ recipe.image_url }}">
+       </div>
+        <div class="col s12 m4">
+            <h6 class="recipe_block_descr">{{ recipe.description|capitalize }}</h6>
+            <hr class="grey lighten-1">
+            <h6 class="recipe_block_header">Cooking time:</h6>  
+            <p class="recipe_block_text "> <i class="far fa-clock"></i> {{ recipe.cook_time }} minutes</p>
+        <hr class="grey lighten-1">
+            <h6 class="recipe_block_header ">Ingredients:</h6>
+            <p class="recipe_block_text"> {{ recipe.ingredients|capitalize}}</p>
+            </div>
+            <div class="col s12">
+            <h6 class="recipe_block_header">How to cook:</h6>
+        <p class="recipe_block_text"> {{ recipe.method|capitalize }} </p>
+        </div>
+            </div>
+    </div>
 
 {% endblock %}
