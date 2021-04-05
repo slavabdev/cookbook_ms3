@@ -34,6 +34,7 @@
             }
         });
     }
+
   });
 
 // Close flash message
@@ -42,3 +43,5 @@
         document.all.alertmessage.style.display='none';
         return false;  
         }  
+
+    

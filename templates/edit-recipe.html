@@ -11,11 +11,11 @@
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix orange-text text-darken-4"></i>
                 
-                <select id="category_name" name="category_name" class="validate" required>
-                    <option value="{{ recipe.category_name }}" disabled selected>{{ recipe.category_name|capitalize }}</option>
-                    <option value="dessert">Desserts</option>
-                    <option value="main">Main courses</option>
-                    <option value="appetizers">Appetizers</option>
+                <select id="category1_name" name="category_name" class="validate" required>
+                    <option value="{{recipe.category}}" disabled selected>{{ recipe.category|capitalize }}</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="main course">Main course</option>
+                    <option value="appetizer">Appetizer</option>
                 </select>
 
                 <label for="category_name">Choose new category</label>

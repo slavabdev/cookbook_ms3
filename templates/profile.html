@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h3>Hi,
-        {{ username }}</h3>
-
-    <h4>Your recipes below</h4>
-
-
+<div class="container">        
+<h3 class="profile_heading">Hi,{{ username|capitalize }}</h3>
+    
+    <p class="profile_text">Upload your recipes by clicking the button below or go to our <a class="profile_link" href="{{ url_for('recipes')}}">Recipes</a> section and check all what we got! </p>
+    </div>
+    
     <div class="new_container">
 
         <div class="profile_btn">
@@ -13,9 +13,9 @@
                 <i class="fas fa-plus-circle"></i>
             </a>
         </div>
-
+      
         {% if user_recipes|length > 0 %}
-
+            <h4 class="profile_subheading">My recipes</h4>
             {% for recipe in user_recipes %}
 
                 {% if recipe.author|lower == username|lower %}
@@ -62,8 +62,9 @@
 
                 {% endfor %}
 
-            {% else %}
-                <h5>1233123123123123</h5>
+                {% else %}
+            <h4 class="profile_subheading">You haven't uploaded recipes yet.</h4>
+       
 
             {% endif %}
 

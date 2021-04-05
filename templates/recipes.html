@@ -2,7 +2,8 @@
 {% block content %}
 
     <section id="all_recipes">
-        <h2 class="section_heading">All recipes</h2>
+        {% if recipe.category == dessert|lower %}
+        <h2 class="section_heading">Desserts</h2>
         
             <div class="new_container">
                 {% for recipe in recipes %}
@@ -20,7 +21,7 @@
                                     </p>
 
                                     <div class="buttons">
-                                        <a class="btn btn_view" href="#">View recipe
+                                        <a class="btn btn_view" href="{{url_for('recipe_page', recipe_id=recipe._id)}}">View recipe
                                         </a>
                                     </div>
                                 </div>
