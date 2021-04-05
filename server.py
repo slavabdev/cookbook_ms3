@@ -90,10 +90,9 @@ def profile(username):
     # grab the session user's username from the db
     username = mongo.db.users.find_one(
         {'username': session['user']})['username']
-    if session['user']:
-        recipes = mongo.db.recipes.find()
-        user_recipes = list(
+    user_recipes = list(
             mongo.db.recipes.find().sort([("author", -1)]))
+    if session['user']:
         return render_template('profile.html', username=username, user_recipes=user_recipes)
     return redirect(url_for('login'))
 
@@ -103,6 +102,11 @@ def profile(username):
 def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template('recipes.html', recipes=recipes)
+
+@app.route('/recipe-page/<recipe_id>')
+def recipe_page(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('recipe-page.html', recipe=recipe, recipe_id=recipe_id)
 
 @app.route('/new-recipe', methods=['GET', 'POST'])
 def new_recipe():
@@ -125,6 +129,7 @@ def new_recipe():
 
 @app.route('/edit-recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     if request.method == 'POST':
             submit = {
                 'category': request.form.get('category_name'),
@@ -139,8 +144,9 @@ def edit_recipe(recipe_id):
             }
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
             flash('Your recipe successfully updated!')
-            return redirect(url_for("recipes"))
-    return render_template('edit-recipe.html')
+            return redirect(url_for('recipes'))
+    return render_template('edit-recipe.html', recipe=recipe)
+
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
