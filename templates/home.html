@@ -44,7 +44,7 @@
                                     <span class="card-title activator grey-text text-darken-4">Appetizers<i class=" right fas fa-chevron-circle-up "></i>
                                     </span>
                                     <p>
-                                        <a class="btn" href="#">Check more</a>
+                                        <a class="btn" href="{{ url_for('recipes', category='appetizer') }}">Check more</a>
                                     </p>
                                 </div>
                                 <div class="card-reveal">
@@ -62,7 +62,7 @@
                                         <span class="card-title activator grey-text text-darken-4">Main courses<i class=" right fas fa-chevron-circle-up "></i>
                                         </span>
                                         <p>
-                                            <a class="btn" href="#">Check more</a>
+                                            <a class="btn" href="{{ url_for('recipes', category='main course') }}">Check more</a>
                                         </p>
                                     </div>
                                     <div class="card-reveal">
@@ -80,7 +80,7 @@
                                             <span class="card-title activator grey-text text-darken-4">Desserts<i class=" right fas fa-chevron-circle-up "></i>
                                             </span>
                                             <p>
-                                                <a class="btn" href="#">Check more</a>
+                                                <a class="btn" href="{{ url_for('recipes', category='dessert') }}">Check more</a>
                                             </p>
                                         </div>
                                         <div class="card-reveal">

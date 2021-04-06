@@ -91,7 +91,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {'username': session['user']})['username']
     user_recipes = list(
-            mongo.db.recipes.find().sort([("author", -1)]))
+            mongo.db.recipes.find({"author": username}).sort([("_id", -1)]))
     if session['user']:
         return render_template('profile.html', username=username, user_recipes=user_recipes)
     return redirect(url_for('login'))
@@ -99,15 +99,21 @@ def profile(username):
 
 @app.route('/recipes')
 def recipes():
-    category = list(mongo.db.recipes.find().sort([("category", -1)]))
-    recipes = list(mongo.db.recipes.find())
+    category = request.args.get('category')
+    if category:
+        recipes = list(mongo.db.recipes.find({'category':category}))
+    else:
+        recipes = list(mongo.db.recipes.find())
 
-    return render_template('recipes.html', recipes=recipes, category=category)
+    return render_template('recipes.html', recipes=recipes)
 
 
 @app.route('/recipe-page/<recipe_id>')
 def recipe_page(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    count = int(recipe['count'])
+    mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
+        {'$set': {'count': count +1 }})
     return render_template('recipe-page.html', recipe=recipe, recipe_id=recipe_id)
 
 
@@ -125,6 +131,7 @@ def new_recipe():
                 'count': 0,
                 'author': session['user']
             }
+            print('recipe')
             mongo.db.recipes.insert_one(recipe)
             flash('Your recipe successfully added!')
             return redirect(url_for("recipes"))

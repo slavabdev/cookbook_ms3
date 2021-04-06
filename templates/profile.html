@@ -13,12 +13,12 @@
                 <i class="fas fa-plus-circle"></i>
             </a>
         </div>
-      
-        {% if user_recipes|length > 0 %}
+    
+        {% if user_recipes|count > 0 %}
             <h4 class="profile_subheading">My recipes</h4>
             {% for recipe in user_recipes %}
 
-                {% if recipe.author|lower == username|lower %}
+               
                     <div class="row">
                         <div class="col s12">
                             <div class="card">
@@ -58,15 +58,15 @@
                                 </div>
                             </div>
                         </div>
-                    {% endif %}
+            
 
-                {% endfor %}
+            {% endfor %}
 
-                {% else  %}
-            <h4 class="profile_subheading">You haven't uploaded recipes yet.</h4>
+        {% else  %}
+        <h4 class="profile_subheading">You haven't uploaded recipes yet.</h4>
        
 
-            {% endif %}
+        {% endif %}
 
 
-        {% endblock %}
+{% endblock %}
