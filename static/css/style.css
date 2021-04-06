@@ -19,8 +19,6 @@ body {
 
 /*Navigation*/
 
-
-
 nav.nav-extended .nav-wrapper{
     min-height: 75px;
 }
@@ -231,7 +229,7 @@ footer ul {
 
 .card-image img {
   width: auto;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
 
  

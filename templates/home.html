@@ -41,17 +41,13 @@
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="{{ url_for('static', filename='img/cat_app.jpg') }}"></div>
                                 <div class="card-content">
-                                    <span class="card-title activator grey-text text-darken-4">Appetizers<i class=" right fas fa-chevron-circle-up "></i>
+                                    <span class="card-title grey-text text-darken-4">Appetizers
                                     </span>
                                     <p>
                                         <a class="btn" href="{{ url_for('recipes', category='appetizer') }}">Check more</a>
                                     </p>
                                 </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">Appetizers<i class=" right fas fa-chevron-circle-down "></i>
-                                    </span>
-                                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="col s12 m4">
@@ -59,17 +55,13 @@
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src="{{ url_for('static', filename='img/cat_main1.jpg') }}"></div>
                                     <div class="card-content">
-                                        <span class="card-title activator grey-text text-darken-4">Main courses<i class=" right fas fa-chevron-circle-up "></i>
+                                        <span class="card-title grey-text text-darken-4">Main courses
                                         </span>
                                         <p>
                                             <a class="btn" href="{{ url_for('recipes', category='main course') }}">Check more</a>
                                         </p>
                                     </div>
-                                    <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4">Main courses<i class=" right fas fa-chevron-circle-down "></i>
-                                        </span>
-                                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="col s12 m4">
@@ -77,17 +69,13 @@
                                     <div class="card-image waves-effect waves-block waves-light">
                                         <img class="activator" src="{{ url_for('static', filename='img/cat_des.jpg') }}"></div>
                                         <div class="card-content">
-                                            <span class="card-title activator grey-text text-darken-4">Desserts<i class=" right fas fa-chevron-circle-up "></i>
+                                            <span class="card-title grey-text text-darken-4">Desserts
                                             </span>
                                             <p>
                                                 <a class="btn" href="{{ url_for('recipes', category='dessert') }}">Check more</a>
                                             </p>
                                         </div>
-                                        <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4">Desserts<i class=" right fas fa-chevron-circle-down "></i>
-                                            </span>
-                                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -109,7 +97,7 @@
                                         <div class="card-image waves-block waves-light">
                                             <img class="activator" src="{{recipe.image_url}}"></div>
                                             <div class="card-content">
-                                                <span class="card-title grey-text text-darken-4"> {{recipe.recipe_title}}
+                                                <span class="card-title activator grey-text text-darken-4"> {{recipe.recipe_title}} <i class=" right fas fa-chevron-circle-up "></i>
                                                 </span>
                                                 <p class="truncate">
                                                     <i class="far fa-clock"></i> {{recipe.cook_time}} minutes
@@ -118,7 +106,11 @@
                                                     <a class="btn" href="{{url_for('recipe_page', recipe_id=recipe._id)}}">View recipe </a>
                                                 </p>
                                             </div>
-
+                                            <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">{{recipe.recipe_title}}<i class=" right fas fa-chevron-circle-down "></i>
+                                            </span>
+                                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                        </div>
                                         </div>
                                     </div>
                                 {% endfor %}

@@ -101,11 +101,11 @@ def profile(username):
 def recipes():
     category = request.args.get('category')
     if category:
-        recipes = list(mongo.db.recipes.find({'category':category}))
+        recipes = list(mongo.db.recipes.find({'category': category}))
     else:
         recipes = list(mongo.db.recipes.find())
 
-    return render_template('recipes.html', recipes=recipes)
+    return render_template('recipes.html', recipes=recipes, category=category)
 
 
 @app.route('/recipe-page/<recipe_id>')
@@ -141,7 +141,6 @@ def new_recipe():
 @app.route('/edit-recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    category = mongo.db.recipes.find().sort('category_name')
     if request.method == 'POST':
             submit = {
                 'category': request.form.get('category_name'),
@@ -157,7 +156,7 @@ def edit_recipe(recipe_id):
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
             flash('Your recipe successfully updated!')
             return redirect(url_for('recipes'))
-    return render_template('edit-recipe.html', recipe=recipe, category=category)
+    return render_template('edit-recipe.html', recipe=recipe)
 
 
 @app.route("/delete_recipe/<recipe_id>")
