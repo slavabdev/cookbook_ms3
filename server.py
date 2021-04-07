@@ -9,7 +9,7 @@ if os.path.exists('env.py'):
     import env
 
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -99,8 +99,13 @@ def profile(username):
 
 @app.route('/recipes')
 def recipes():
+    query = request.args.get('query')
     category = request.args.get('category')
-    if category:
+    if query:
+        recipes = list(mongo.db.recipes.find(
+            {"$text": {"$search": query}}))
+        print(query)
+    elif category:
         recipes = list(mongo.db.recipes.find({'category': category}))
     else:
         recipes = list(mongo.db.recipes.find())
