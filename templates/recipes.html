@@ -7,7 +7,7 @@
         {% else %} 
         <h2 class="section_heading">All recipes</h2>
         {% endif %} 
-
+        
           <form action="{{ url_for('recipes') }}" method="get">
                 <input type="text" name="query" id="query" minlength="2" class="validate" required>
                    <label for="query">Search</label>
