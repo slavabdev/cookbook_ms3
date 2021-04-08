@@ -9,7 +9,7 @@
     <form class="col s12" method="POST" action="{{ url_for('new_recipe') }}">
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix orange-text text-darken-4"></i>
+                <i class="fas fa-utensils prefix text-darken-4"></i>
                 
                 <select id="category_name" name="category_name" class="validate" required>
                     <option value="" disabled selected >Choose category</option>
@@ -25,7 +25,7 @@
         <!-- Recipe title -->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix text-darken-4"></i>
           <input id="recipe_title" name="recipe_title" minlength="5" maxlength="100" 
           type="text" class="validate" required>
           <label for="task_name">Title</label>
@@ -35,7 +35,7 @@
     <!-- Recipe Description -->
     <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+          <i class="fas fa-align-left prefix text-darken-4"></i>
           <textarea id="description" name="description" minlength="5" maxlength="400" 
           class="materialize-textarea validate" required></textarea>
           <label for="description">Description</label>
@@ -44,7 +44,7 @@
 <!-- Cook time -->
        <div class="row">
                 <div class="input-field col s12">
-                      <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+                      <i class="far fa-clock prefix text-darken-4"></i>
                             <input id="cook_time" name="cook_time" type="number" step="5" min="0" required>
                             <label class="" for="cook_time">Cooktime (minutes) </label>
                     </div>
@@ -54,7 +54,7 @@
 
  <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+          <i class="fas fa-list prefix text-darken-4"></i>
           <textarea id="ingredients" name="ingredients" minlength="5"
           class="materialize-textarea validate" required></textarea>
           <label for="ingredients">Ingredients</label>
@@ -65,7 +65,7 @@
 
  <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+          <i class="fas fa-list prefix text-darken-4"></i>
           <textarea id="method" name="method" minlength="5"
           class="materialize-textarea validate" required></textarea>
           <label for="method">Method</label>

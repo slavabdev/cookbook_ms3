@@ -81,6 +81,9 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     line-height: 75px;
 }
 
+
+
+
 /*Slider*/
 
 .slider img {
@@ -395,3 +398,68 @@ color: #ffd977;
     color: #212121;
 }
 
+/* Add recipe */
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #212121
+}
+
+/* Search */
+
+
+
+input[type=text]:not(.browser-default){
+    height: 2.5rem;
+    border-bottom:solid 2px #212121;
+}
+
+#recipes .section_heading {
+    margin-bottom: 4rem;
+}
+
+.search_wrapper {
+    width: 70%;
+}
+
+@media screen and (max-width:600px) {
+    .sidenav li>a {
+        font-size: 1.2rem;
+    }
+    .section_heading {
+        font-size: 2.5rem;
+    }
+
+    .search_wrapper {
+        width: 100%;
+    }
+
+    #recipes .row {
+        margin-bottom: 10px;
+    }
+
+    .profile_btn .btn {
+        padding: 15px 25px;
+        line-height: 8px;
+        font-size: 15px;
+        
+    }
+
+    .profile_btn{
+        margin: 1rem;
+    }
+
+    .profile_text{
+        font-size: 15px;
+    }
+
+    .btn{
+        font-size: 15px;
+    }
+    .flash_text h3 {
+        font-size: 2rem;
+    }
+
+    .close {
+        margin-top: 15px;
+    }
+}

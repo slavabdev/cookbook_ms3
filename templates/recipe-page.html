@@ -7,7 +7,7 @@
        
    <div class="row">
        <div class="col s12 m8">
-            <img class="recipe_block_img responsive-img" src="{{ recipe.image_url }}">
+            <img class="recipe_block_img responsive-img" src="{{ recipe.image_url }}" onError="this.src='{{ url_for('static', filename='img/logo.png') }}'">
        </div>
         <div class="col s12 m4">
             <h6 class="recipe_block_descr">{{ recipe.description|capitalize }}</h6>

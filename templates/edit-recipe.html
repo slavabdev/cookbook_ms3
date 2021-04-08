@@ -9,7 +9,7 @@
     <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix orange-text text-darken-4"></i>
+                <i class="fas fa-utensils prefix text-darken-4"></i>
                 
                 <select id="category1_name" name="category_name" class="validate" required>
                     <option value="{{recipe.category}}" disabled selected>{{ recipe.category|capitalize }}</option>
@@ -26,7 +26,7 @@
         <!-- Recipe title -->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix text-darken-4"></i>
           <input id="recipe_title" name="recipe_title" minlength="5" maxlength="100" 
           type="text" class="validate" value="{{recipe.recipe_title}}" required>
           <label for="task_name">Title</label>
@@ -36,7 +36,7 @@
     <!-- Recipe Description -->
     <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+          <i class="fas fa-align-left prefix text-darken-4"></i>
           <textarea id="description" name="description" minlength="5" maxlength="400" 
           class="materialize-textarea validate" required>{{recipe.description}}</textarea>
           <label for="description">Description</label>
@@ -45,7 +45,7 @@
 <!-- Cook time -->
        <div class="row">
                 <div class="input-field col s12">
-                      <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+                  <i class="far fa-clock prefix text-darken-4"></i>
                             <input id="cook_time" name="cook_time" type="number" step="5" min="0" value="{{recipe.cook_time}}" required>
                             <label for="cook_time">Cooktime</label>
                     </div>
@@ -55,7 +55,7 @@
 
  <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+          <i class="fas fa-list prefix text-darken-4"></i>
           <textarea id="ingredients" name="ingredients" minlength="5"
           class="materialize-textarea validate" required>{{recipe.ingredients}}</textarea>
           <label for="ingredients">Ingredients</label>
@@ -66,7 +66,7 @@
 
  <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+          <i class="fas fa-list prefix text-darken-4"></i>
           <textarea id="method" name="method" minlength="5"
           class="materialize-textarea validate" required>{{recipe.method}}</textarea>
           <label for="method">Method</label>
