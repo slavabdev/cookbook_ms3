@@ -18,12 +18,20 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# Routes
+
+
+# Home
+
 @app.route('/')
 @app.route('/home')
 def home():
     pop_recipes = list(
         mongo.db.recipes.find().sort([('count', -1)]).limit(3))
     return render_template('home.html', pop_recipes=pop_recipes)
+
+
+# Register
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -48,6 +56,8 @@ def register():
         return redirect(url_for('recipes', username=session['user']))
     return render_template('register.html')
 
+
+# Login
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -78,12 +88,15 @@ def login():
 
     return render_template('login.html')
 
+# Logout
+
 @app.route('/logout')
 def logout():
     flash("You've been logged out")
     session.pop('user')
     return redirect(url_for('login'))
 
+# Profile page
 
 @app.route('/profile/<username>', methods=['GET','POST'])
 def profile(username):
@@ -96,6 +109,7 @@ def profile(username):
         return render_template('profile.html', username=username, user_recipes=user_recipes)
     return redirect(url_for('login'))
 
+# Recipes page
 
 @app.route('/recipes')
 def recipes():
@@ -112,6 +126,7 @@ def recipes():
 
     return render_template('recipes.html', recipes=recipes, category=category)
 
+# Single recipe
 
 @app.route('/recipe-page/<recipe_id>')
 def recipe_page(recipe_id):
@@ -119,8 +134,11 @@ def recipe_page(recipe_id):
     count = int(recipe['count'])
     mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
         {'$set': {'count': count +1 }})
+    print(count)
     return render_template('recipe-page.html', recipe=recipe, recipe_id=recipe_id)
 
+
+# Add recipe 
 
 @app.route('/new-recipe', methods=['GET', 'POST'])
 def new_recipe():
@@ -143,6 +161,8 @@ def new_recipe():
     return render_template('new-recipe.html')
 
 
+# Edit recipe
+
 @app.route('/edit-recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -164,6 +184,8 @@ def edit_recipe(recipe_id):
     return render_template('edit-recipe.html', recipe=recipe)
 
 
+# Delete recipe
+
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     username = mongo.db.users.find_one(
@@ -174,18 +196,13 @@ def delete_recipe(recipe_id):
     return redirect(url_for('profile', username=username))
 
 
-@app.route("/visits/<recipe_id>")
-def visits(recipe_id):
-        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        count = int(recipes['count'])
-        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
-            {'$set': {'count': count +1 }})
-        return redirect(url_for('recipe_page', recipe=recipe, recipe_id=recipe_id))
-
+#404 page 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # note that we set the 404 status explicitly
+    """page_not_found:
+    If a 404 error occured Page_not_found function will render the 404 page
+    """
     return render_template('404.html'), 404
 
 

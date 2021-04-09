@@ -21,8 +21,7 @@
               name="category_name"
               class="validate"
               required>
-              <option value="{{recipe.category}}" disabled selected>
-                {{ recipe.category|capitalize }}
+              <option value="{{recipe.category}}" disabled selected> {{ recipe.category|capitalize }}
               </option>
               <option value="dessert">Dessert</option>
               <option value="main course">Main course</option>
@@ -44,9 +43,7 @@
               minlength="5"
               maxlength="100"
               type="text"
-              class="validate"
-              value="{{recipe.recipe_title}}"
-              required/>
+              class="validate" value="{{recipe.recipe_title}}" required/>
             <label for="task_name">Title</label>
           </div>
         </div>
@@ -62,8 +59,7 @@
               minlength="5"
               maxlength="400"
               class="materialize-textarea validate"
-              required>
-              {{recipe.description}}</textarea>
+              required> {{recipe.description}}</textarea>
             <label for="description">Description</label>
           </div>
         </div>
@@ -79,8 +75,7 @@
               type="number"
               step="5"
               min="0"
-              value="{{recipe.cook_time}}"
-              required/>
+              value="{{recipe.cook_time}}" required/>
             <label for="cook_time">Cooktime</label>
           </div>
         </div>
@@ -95,8 +90,7 @@
               name="ingredients"
               minlength="5"
               class="materialize-textarea validate"
-              required>
-              {{recipe.ingredients}}</textarea>
+              required> {{recipe.ingredients}}</textarea>
             <label for="ingredients">Ingredients</label>
           </div>
         </div>
@@ -106,13 +100,8 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="fas fa-list prefix text-darken-4"></i>
-            <textarea
-              id="method"
-              name="method"
-              minlength="5"
-              class="materialize-textarea validate"
-              required>
-              {{recipe.method}}</textarea>
+            <textarea id="method" name="method" minlength="5" 
+            class="materialize-textarea validate" required> {{recipe.method}}</textarea>
             <label for="method">Method</label>
           </div>
         </div>
@@ -143,6 +132,7 @@
             </button>
           </div>
         </div>
+        
       </form>
     </div>
   </div>

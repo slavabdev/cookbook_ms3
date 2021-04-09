@@ -57,7 +57,6 @@ nav ul a:hover{
     background-color: #ffd977;
 }
 
-
 .sidenav li>a {
     text-align: center;
     color: #212121;
@@ -81,9 +80,6 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     line-height: 75px;
 }
 
-
-
-
 /*Slider*/
 
 .slider img {
@@ -93,11 +89,8 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 
 .slider-img {
     width: 100%;
-    height: auto;
-    
+    height: auto;  
 }
-
-
 
 .slider .indicators .indicator-item.active {
     background-color: #ffd977;
@@ -115,7 +108,6 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 .btn:hover {
    background-color: #ffd977
 }
-
 
 /*Footer*/
 
@@ -136,7 +128,6 @@ footer ul {
     margin-left: 20px;
     justify-content: center;
 }
-
 
 .social_icon i {
     font-size: 2.3rem;
@@ -164,6 +155,7 @@ footer ul {
 }
 
 /*Flash message*/
+
 .flashes {
     background-color: #ffd977;
     color: #212121;
@@ -189,7 +181,6 @@ footer ul {
 .close:hover {
     color: red;
 }
-
 
 /*Categories*/
 
@@ -250,7 +241,6 @@ footer ul {
     font-size: 17px;
     font-weight: 400;
 }
-
 
 /*All recipes*/
 
@@ -328,7 +318,6 @@ color: #ffd977;
     font-weight: 500;
     text-transform: uppercase;
     text-decoration: underline #ffd977 ;
-    
 }
 
 .profile_text {
@@ -342,8 +331,7 @@ color: #ffd977;
 .profile_btn {
     display: flex;
     justify-content: center;
-    margin: 2rem;
-    
+    margin: 2rem;  
 }
 
 .profile_btn .btn {
@@ -360,11 +348,9 @@ color: #ffd977;
 
 .profile_text a:hover {
     text-decoration: underline #ffd977;
-
 }
 
 /* Recipe page */
-
 
 .recipe_block_descr {
     margin-bottom: 25px;
@@ -398,8 +384,6 @@ color: #ffd977;
 }
 
 /* Search */
-
-
 
 input[type=text]:not(.browser-default){
     height: 2.5rem;
@@ -443,6 +427,7 @@ input[type=text]:not(.browser-default){
 
 /* Media queries */
 
+/* for devices with screen less than 600px */
 @media screen and (max-width:600px) {
     .sidenav li>a {
         font-size: 1.2rem;
@@ -463,7 +448,6 @@ input[type=text]:not(.browser-default){
         padding: 15px 25px;
         line-height: 8px;
         font-size: 15px;
-        
     }
 
     .profile_btn{
@@ -487,5 +471,18 @@ input[type=text]:not(.browser-default){
 
     .footer_sm_head{
         font-size: 1.4rem;
+    }
+}
+
+/* for devices with screen less than 370px */
+@media screen and (max-width:370px) {
+    .sidenav li>a {
+        font-size: 1rem;
+    }
+
+    .buttons .btn_del,
+    .buttons .btn_ed,
+    .buttons .btn_view {
+        font-size: 10px;
     }
 }
