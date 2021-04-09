@@ -1,119 +1,150 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
     <!--Slider-->
 
     <div class="slider">
-        <ul class="slides transparent">
-            <li>
-                <img class="img-responsive" src="{{ url_for('static', filename='img/slider.jpg') }}">
-                    <div class="caption left-align">
-                        <h3>This is our big Tagline!</h3>
-                        <p class="light grey-text text-lighten-3">Here's our small slogan.</p>
-                        <a class="waves-effect waves-light btn">
-                            button
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <img class="img-responsive" src="{{ url_for('static', filename='img/slider2.jpg') }}">
-                        <div class="caption left-align">
-                            <h3>Left Aligned Caption</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                            <a class="btn">
-                                button
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+    <ul class="slides transparent">
+        <li>
+        <img
+            class="img-responsive"
+            src="{{ url_for('static', filename='img/slider.jpg') }}"/>
+        <div class="caption left-align">
+            <h3>Upload your recipes</h3>
+            <h5 class="light grey-text text-lighten-3">
+            Create an account and upload your favourite recipes.
+            </h5>
+            <a
+            href="{{ url_for('register') }}"
+            class="waves-effect waves-light btn">
+            register
+            <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+        </li>
+        <li>
+        <img
+            class="img-responsive"
+            src="{{ url_for('static', filename='img/slider2.jpg') }}"/>
+        <div class="caption left-align">
+            <h3>Check our recipes</h3>
+            <h5 class="light grey-text text-lighten-3">Click the button below and check our most popular recipes</h5>
+            <a href="#popular" class="btn">
+            Top recipes
+            <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+        </li>
+    </ul>
+    </div>
+
+    <!--Category Section-->
+
+    <section id="categories">
+    <h2 class="section_heading">Categories</h2>
+
+    <div class="row">
+        <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img
+                class="activator"
+                src="{{ url_for('static', filename='img/cat_app.jpg') }}"
+            />
             </div>
+            <div class="card-content">
+            <span class="card-title grey-text text-darken-4">Appetizers </span>
+            <p>
+                <a class="btn" href="{{ url_for('recipes', category='appetizer') }}"
+                >Check more</a
+                >
+            </p>
+            </div>
+        </div>
+        </div>
 
-            <!--Category Section-->
+        <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img
+                class="activator"
+                src="{{ url_for('static', filename='img/cat_main1.jpg') }}"
+            />
+            </div>
+            <div class="card-content">
+            <span class="card-title grey-text text-darken-4">Main courses </span>
+            <p>
+                <a
+                class="btn"
+                href="{{ url_for('recipes', category='main course') }}"
+                >Check more</a>
+            </p>
+            </div>
+        </div>
+        </div>
+        <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img
+                class="activator"
+                src="{{ url_for('static', filename='img/cat_des.jpg') }}"
+            />
+            </div>
+            <div class="card-content">
+            <span class="card-title grey-text text-darken-4">Desserts </span>
+            <p>
+                <a class="btn" href="{{ url_for('recipes', category='dessert') }}"
+                >Check more</a>
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="btn_container">
+        <a href="{{ url_for('recipes') }}" class="btn btn_all">View all recipes</a>
+    </div>
+    </section>
 
-            <section id="categories">
-                <h2 class="section_heading">Categories</h2>
+    <!--Top recipe section-->
 
-                <div class="row">
-                    <div class="col s12 m4">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ url_for('static', filename='img/cat_app.jpg') }}"></div>
-                                <div class="card-content">
-                                    <span class="card-title grey-text text-darken-4">Appetizers
-                                    </span>
-                                    <p>
-                                        <a class="btn" href="{{ url_for('recipes', category='appetizer') }}">Check more</a>
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="col s12 m4">
-                            <div class="card">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="{{ url_for('static', filename='img/cat_main1.jpg') }}"></div>
-                                    <div class="card-content">
-                                        <span class="card-title grey-text text-darken-4">Main courses
-                                        </span>
-                                        <p>
-                                            <a class="btn" href="{{ url_for('recipes', category='main course') }}">Check more</a>
-                                        </p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="col s12 m4">
-                                <div class="card">
-                                    <div class="card-image waves-effect waves-block waves-light">
-                                        <img class="activator" src="{{ url_for('static', filename='img/cat_des.jpg') }}"></div>
-                                        <div class="card-content">
-                                            <span class="card-title grey-text text-darken-4">Desserts
-                                            </span>
-                                            <p>
-                                                <a class="btn" href="{{ url_for('recipes', category='dessert') }}">Check more</a>
-                                            </p>
-                                        </div>
-                                        
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="btn_container">
-                                <a href="{{ url_for('recipes') }}" class="btn btn_all">View all recipes</a>
-                            </div>
-
-                        </section>
-
-                        <!--Top recipe section-->
-
-                        <section id="popular">
-                            <h2 class="section_heading">Popular recipes</h2>
-                            {% for recipe in pop_recipes %}
-                            <div class="row">
-                                <div class="col s12 m4">
-                                    <div class="card">
-                                        <div class="card-image waves-block waves-light">
-                                            <img class="activator" src="{{recipe.image_url}}"></div>
-                                            <div class="card-content">
-                                                <span class="card-title activator grey-text text-darken-4"> {{recipe.recipe_title}} <i class=" right fas fa-chevron-circle-up "></i>
-                                                </span>
-                                                <p class="truncate">
-                                                    <i class="far fa-clock"></i> {{recipe.cook_time}} minutes
-                                                </p>
-                                                <p>
-                                                    <a class="btn" href="{{url_for('recipe_page', recipe_id=recipe._id)}}">View recipe </a>
-                                                </p>
-                                            </div>
-                                            <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4">{{recipe.recipe_title}}<i class=" right fas fa-chevron-circle-down "></i>
-                                            </span>
-                                            <p>{{recipe.description}}</p>
-                                        </div>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                                </div>
-                            </section>
-                        {% endblock %}
+    <section id="popular">
+    <h2 class="section_heading">Popular recipes</h2>
+    {% for recipe in pop_recipes %}
+    <div class="row">
+        <div class="col s12 m6 l4">
+        <div class="card">
+            <div class="card-image waves-block waves-light">
+            <img
+                class="activator"
+                src="{{recipe.image_url}}"
+                onError="this.src='{{ url_for('static', filename='img/no-img.jpg') }}'"/>
+            </div>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+                {{recipe.recipe_title}}
+                <i class="right fas fa-chevron-circle-up"></i>
+            </span>
+            <p class="truncate">
+                <i class="far fa-clock"></i> {{recipe.cook_time}} minutes
+            </p>
+            <p>
+                <a
+                class="btn"
+                href="{{url_for('recipe_page', recipe_id=recipe._id)}}"
+                >View recipe
+                </a>
+            </p>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"
+                >{{recipe.recipe_title}}<i
+                class="right fas fa-chevron-circle-down"
+                ></i>
+            </span>
+            <p>{{recipe.description}}</p>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+    </section>
+{% endblock %}

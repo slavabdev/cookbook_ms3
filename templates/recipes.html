@@ -2,33 +2,34 @@
 {% block content %}
 
     <section id="recipes">
-       {% if category %} 
-        <h2 class="section_heading">{{category}}s</h2>
+        {% if category %} 
+            <h2 class="section_heading">{{category}}s</h2>
         {% else %} 
-        <h2 class="section_heading">All recipes</h2>
+            <h2 class="section_heading">All recipes</h2>
         {% endif %} 
         
         <div class="row search_wrapper">
           <form action="{{ url_for('recipes') }}" method="get">
-            <div class="col s8">
-                <input type="text" name="query" id="query" minlength="2" class="validate" placeholder="  Search your favourite recipe" required>
-                   <label for="query"></label>
-            </div>
-            <div class="col s2">
-                        <button type="submit" class="btn" id="search-btn"> Search</button>
-                    </div>
-            </form>
+                <div class="col s8">
+                    <input type="text" name="query" id="query" minlength="2" class="validate" placeholder="  Search your favourite recipe" required>
+                    <label for="query"></label>
+                </div>
+
+                <div class="col s2">
+                    <button type="submit" class="btn" id="search-btn"> Search</button>
+                </div>
+           </form>
         </div>
     
         {% if recipes|count > 0 %}
 
-        {% for recipe in recipes %}
-            <div class="row">
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image waves-block waves-light">
-                            <img class="activator" src="{{ recipe.image_url }}" onError="this.src='{{ url_for('static', filename='img/no-img.jpg') }}'" >
-                        </div>
+            {% for recipe in recipes %}
+                <div class="row">
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-image waves-block waves-light">
+                                <img class="activator" src="{{ recipe.image_url }}" onError="this.src='{{ url_for('static', filename='img/no-img.jpg') }}'" >
+                            </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">
                                     {{ recipe.recipe_title }} <i class=" right fas fa-chevron-circle-up "></i>
@@ -39,26 +40,24 @@
 
                                 <div class="buttons">
                                     <a class="btn btn_view" href="{{ url_for('recipe_page', recipe_id=recipe._id) }}">View recipe
-                                    </a>
+                                        </a>
                                 </div>
                             </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">{{recipe.recipe_title}}<i class=" right fas fa-chevron-circle-down "></i>
-                                </span>
-                                <p>{{ recipe.description }}</p>
-                            </div>
+
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">{{recipe.recipe_title}}<i class=" right fas fa-chevron-circle-down "></i>
+                                    </span>
+                                    <p>{{ recipe.description }}</p>
+                                </div>
 
                         </div>
                     </div>
-
                 {% endfor %}
             </div>
-               {% else %} 
+        {% else %} 
+            <h2 class="section_heading">We can't find an information you're looking for</h2>
+        {% endif %}        
 
-                <h2>Sorry, nothing found</h2>
-                {% endif %} 
-            
+    </section>
 
-        </section>
-
-    {% endblock %}
+{% endblock %}

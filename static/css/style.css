@@ -251,13 +251,6 @@ footer ul {
     font-weight: 400;
 }
 
-/* .recipe_descr{
-  white-space: nowrap; 
-  width: 370px; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  
-} */
 
 /*All recipes*/
 
@@ -421,6 +414,35 @@ input[type=text]:not(.browser-default){
     width: 70%;
 }
 
+/* Page 404 */
+
+.container .page_404 {
+    font-size: 160px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Train One', sans-serif;
+    letter-spacing: 20px;
+    -webkit-background-clip: text;
+}
+
+.button_404 {
+    display: flex;
+    justify-content: center;
+}
+
+.button_404 .btn {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.text_404 {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+/* Media queries */
+
 @media screen and (max-width:600px) {
     .sidenav li>a {
         font-size: 1.2rem;
@@ -455,11 +477,15 @@ input[type=text]:not(.browser-default){
     .btn{
         font-size: 15px;
     }
-    .flash_text h3 {
-        font-size: 2rem;
+    .flash_text {
+        font-size: 1.5rem;
     }
 
     .close {
         margin-top: 15px;
+    }
+
+    .footer_sm_head{
+        font-size: 1.4rem;
     }
 }

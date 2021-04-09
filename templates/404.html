@@ -1,6 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% block content %}
+  
 
-<h2>Sorry, nothing found. go back <a href="{{url_for('home')}}">home </a> </h2>
-h2
+<div class="container">
+    <h3 class="section_heading">Oops, page not found.</h3>
+    <h2 class="page_404">404</h2>
+    <p class="text_404">We can't find the page you're looking for.</p>
+    <div class="button_404">
+      <a class="btn" href="{{url_for('home')}}">Go back home</a>
+    </div>
+  </div>
+
+  
 {% endblock %}

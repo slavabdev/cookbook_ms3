@@ -138,7 +138,7 @@ def new_recipe():
             }
             print('recipe')
             mongo.db.recipes.insert_one(recipe)
-            flash('Your recipe successfully added!')
+            flash('Recipe successfully added!')
             return redirect(url_for("recipes"))
     return render_template('new-recipe.html')
 
