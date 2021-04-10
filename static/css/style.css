@@ -392,6 +392,7 @@ input[type=text]:not(.browser-default){
 
 #recipes .section_heading {
     margin-bottom: 4rem;
+    margin-top: 4rem;
 }
 
 .search_wrapper {
@@ -406,7 +407,6 @@ input[type=text]:not(.browser-default){
     font-weight: 700;
     font-family: 'Train One', sans-serif;
     letter-spacing: 20px;
-    -webkit-background-clip: text;
 }
 
 .button_404 {
@@ -417,6 +417,7 @@ input[type=text]:not(.browser-default){
 .button_404 .btn {
     font-size: 30px;
     font-weight: 400;
+    margin-bottom: 30px;
 }
 
 .text_404 {

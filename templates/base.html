@@ -95,8 +95,8 @@
                     {% if messages %}
                         {% for message in messages %} 
                             <div class="row flashes center">
-                                <h3 class="flash_text">{{ message }}</h3>
                                 <a class="close" href=""><i class="fas fa-times" οnclick="close_flash_message()"> </i></a>
+                                <h3 class="flash_text">{{ message }} </h3>
                             </div>                     
                         {% endfor %}
                     {% endif %}
