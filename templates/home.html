@@ -118,20 +118,21 @@
                                 onError="this.src='{{ url_for('static', filename='img/no-img.jpg') }}'"/>
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">
+                            <span class="card-title truncate grey-text text-darken-4">
                                 {{recipe.recipe_title}}
-                                <i class="right fas fa-chevron-circle-up"></i>
                             </span>
                             <p class="truncate">
                                 <i class="far fa-clock"></i> {{recipe.cook_time}} minutes
                             </p>
-                            <p>
+                            <div class="buttons">
                                 <a
                                 class="btn"
                                 href="{{url_for('recipe_page', recipe_id=recipe._id)}}"
                                 >View recipe
                                 </a>
-                            </p>
+                                <i class="activator right fas fa-chevron-circle-up fa-2x "></i>
+                            </div>
+                            
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"

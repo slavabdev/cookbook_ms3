@@ -246,7 +246,6 @@ footer ul {
 
 #all_recipes .btn {
     margin-top: 20px;
-    
 }
 
 .buttons {
@@ -272,6 +271,10 @@ color: #ffd977;
 
 .buttons .btn_del{
     color: red;
+}
+
+.activator {
+    cursor: pointer;
 }
 
 /* Registration page */

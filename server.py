@@ -136,7 +136,7 @@ def profile(username):
 @app.route('/recipes')
 def recipes():
     '''
-    function render profile page
+    function render recipes page
     '''
     query = request.args.get('query')
     category = request.args.get('category')
@@ -218,6 +218,8 @@ def edit_recipe(recipe_id):
     flash appropriate message, and redirects to profile page
     '''
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    username = mongo.db.users.find_one(
+        {'username': session['user']})['username']
     if request.method == 'POST':
             submit = {
                 'category': request.form.get('category_name'),
@@ -232,7 +234,7 @@ def edit_recipe(recipe_id):
             }
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
             flash('Your recipe successfully updated!')
-            return redirect(url_for('profile'))
+            return redirect(url_for('profile',username=username))
     return render_template('edit-recipe.html', recipe=recipe)
 
 
