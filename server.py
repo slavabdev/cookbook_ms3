@@ -234,7 +234,7 @@ def edit_recipe(recipe_id):
             }
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
             flash('Your recipe successfully updated!')
-            return redirect(url_for('profile',username=username))
+            return redirect(url_for('profile', username=username))
     return render_template('edit-recipe.html', recipe=recipe)
 
 
@@ -267,4 +267,4 @@ def page_not_found(e):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
-        debug = False)
+        debug = True)

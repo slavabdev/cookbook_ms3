@@ -42,7 +42,7 @@
 // Close flash message
 
    function close_flash_message(){  
-        document.all.alertmessage.style.display='none';
+        document.alertmessage.style.display='none';
         return false;  
         }  
 
