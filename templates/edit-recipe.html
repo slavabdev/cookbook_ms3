@@ -21,26 +21,15 @@
         name="category_name"
         class="validate"
         required>
-        {%if recipe.category == 'dessert'%}
-          <option value="{{recipe.category}}" selected> {{recipe.category|capitalize}}
-          </option>
-          <option value="main">Main course</option>
-          <option value="appetizer">Appetizer</option>
-        {%elif recipe.category == 'main'%}
-          <option value="{{recipe.category}}" selected> {{recipe.category|capitalize}}
-          </option>
-          <option value="dessert">Dessert</option>
-          <option value="appetizer">Appetizer</option>
-        {%elif recipe.category == 'appetizer'%}
-          <option value="{{recipe.category}}" selected> {{recipe.category|capitalize}}
-          </option>
-          <option value="dessert">Dessert</option>
-          <option value="main">Main course</option> 
-        {% else %}
-          <option value="appetizer" selected>Appetizer</option>
-          <option value="dessert">Dessert</option>
-          <option value="main">Main course</option> 
-        {%endif%}
+        <option value="appetizer" {% if "appetizer" == recipe.category %} 
+          selected="selected"{% endif %}>Appetizer
+        </option>
+        <option value="dessert" {% if "dessert" == recipe.category %} 
+          selected="selected"{% endif %}>Dessert
+        </option>
+        <option value="main" {% if "main" == recipe.category %}
+         selected="selected"{% endif %}>Main course
+        </option> 
       </select>
 
       <label for="category_name">Choose new category</label>
