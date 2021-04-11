@@ -109,6 +109,10 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
    background-color: #ffd977
 }
 
+.btn:active {
+    background-color: #ffd977  
+}
+
 /*Footer*/
 
 .page-footer {
@@ -372,7 +376,7 @@ color: #ffd977;
     color: #212121;
 }
 
-.recipe_block_img {
+.recipe_block_img img {
     width: 100%;
     max-height: 600px;
     object-fit: cover;
@@ -436,6 +440,12 @@ input[type=text]:not(.browser-default){
 }
 
 /* Media queries */
+
+/* for devices with screen less than 600px */
+@media screen and (max-width:770px) {
+    .btn{
+        font-size: 12px;
+    }
 
 /* for devices with screen less than 600px */
 @media screen and (max-width:600px) {
