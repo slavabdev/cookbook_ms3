@@ -2,6 +2,7 @@
 The W3C Markup Validator and W3C CSS Validator Services were used in the project to ensure there were no syntax errors.
 * [W3C Markup Validator](https://validator.w3.org/nu/)
 * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+   - One mistake in Materialize URI https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css detected
 * [JSHint](https://jshint.com/)
 * [PEP8](http://pep8online.com/) 
 
@@ -21,7 +22,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used in the project
 - **HOME PAGE**
     - Open the page in different browsers and scroll it down to make sure that everything displays correctly. 
     - Carousel
-        - Click on the arrows to verify that the carousel works correctly and all slides are displayed accurately.
+        - Click on the dots to verify that the carousel works correctly and all slides are displayed accurately.
         - Hover over the buttons to make sure that they change the colour.
         - Click the buttons to verify that they link with the correct sections/pages.
         - Expand and reduce a screen size to verify that slider looks good on different screen widths. 
@@ -42,7 +43,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used in the project
 - Search
     - Confirm that page title display the correct value ('category name' if came by the category link from the fome page; or 'All recipes') 
     - Print the text that is exactly in some of recipes and check if search will find it.
-    - Print the text that is not in recipes recipes and check if search will return 'Nothing found' message.
+    - Print the text that is not in recipes and check if search will return 'Nothing found' message.
 - Recipes
     - Hover over the buttons to verify that they change its colour;
     - Click the arrow-up button to confirm that it reveals a correct recipe description. 
@@ -52,22 +53,22 @@ The W3C Markup Validator and W3C CSS Validator Services were used in the project
 - **AUTHENTIFICATION**
     - Confirm that all content is visible
     - Expand and reduce a screen size to verify that the page and all the components looks good on a different screen widths. 
-    - Confirm that un-registered/unauthorised user can't see the 'Profile', 'Logout' and 'Add recipe' items on the navbar.
+    - Confirm that un-registered/unauthorised user can't see the 'Profile', 'Logout' and 'Add recipe' items on the navbar and don't have an access to this pages.
     - Confirm that registered/authorised user can't see the 'Register' and 'Login' items on the navbar.
 - Register 
     - Confirm that it is unable to register without filling the whole registration form.
     - Confirm that it is unable to register with the existing users username (and corresponding flash message appears)
-    - Confirm that after registration user get a flash message and redirected to the recipe page.
+    - Confirm that after registration user get a flash message and redirected to the all recipes page.
 - Login
-    Verify that it is unable to login without filling the whole  form.
+    - Verify that it is unable to login without filling the whole  form.
     - Confirm that it is unable to login with the adding incorrect username/password (and corresponding flash message appears).
-    - Confirm that after log in user get a corresponding flash message and redirected to the recipe page.
--Logout    
+    - Confirm that after log in user get a corresponding flash message and redirected to the all recipes page.
+- Logout    
     - Confirm that after clicking a 'logout' in the navigation section user will be popped out of the session, get a corresponding flash message and redirected to the 'login' page.
 - **PROFILE**
     - Confirm that all content is visible
     - Expand and reduce a screen size to verify that the page and all the components looks good on a different screen widths.
-    - Confirm that if user haven't uploaded recipes yet, they will see a corresponding message on the bottom of the page. 
+    - Confirm that if user haven't uploaded recipes yet, they will see a corresponding message. 
     - Verify that username, taken from the database (users collection) display correctly.
     - Make sure that 'Add recipe' button redirect to corresponding page. 
 - Recipes
@@ -110,7 +111,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used in the project
 
 - ## [Manual testing results](https://drive.google.com/drive/folders/1PxYaCnti41b-D8P_lKoXvAM7GNKRpJ8Y?usp=sharing)
 
-**Testing User Stories from User Experience (UX) Section**
+## **Testing User Stories from User Experience (UX) Section**
 - As a **new visitor**, I want to understand what this website about and what its purpose. 
     - Upon entering the site, the user sees the company logo on the navigation bar and a slider with themed images and сall to action content. When scrolling down the home page, the user can easily understand what the website purpose.
 - As a **new visitor**, I want to easily navigate the site to get a content what I need;
@@ -127,10 +128,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used in the project
     -  For users convenience they can filter recipes by category by clicking a particular button on the home page (category section).
     -  Users can search the recipes by title or  ingredients through all the recipe page.
 - As a **new visitor**, I want to see a modern website with a pleasant colour palette.
-    - The website (including the buttons, forms and content) is made in the one style and using pleasant colour palette.
+    - The website (including the buttons, forms and content) is made in one style and using pleasant colour palette.
 
 - As an **interested visitor** I want to easily create an account on the site;
-    - User can easily access to the rigistration page by clicking a corresponding link on the navigation bar or by clicking call to action butoon on the slider. Registration process is quick and doesn't require a multiple actions.
+    - User can easily access to the registration page by clicking a corresponding link on the navigation bar or by clicking call to action butoon on the slider. Registration process is quick and doesn't require a multiple actions.
 - As an **interested visitor** I want to have an ability to add/edit/delete my recipes on/from the website;
     - Every registered user have an ability to upload, edit and delete their own recipes. For users convenience, all these actions can be held from the Profile page. 
 - As an **interested visitor** I want to easily navigate through recipes I posted;

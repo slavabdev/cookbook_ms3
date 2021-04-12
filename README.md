@@ -8,7 +8,7 @@
 <h2 align="center"><a href="https://ibb.co/M5Rf9WT"><img src="https://i.ibb.co/LhCrvbw/food-screenshot.png" alt="food-screenshot" border="0"></a><h2 align="center">
 
 ### **Legend**:
-This is a website of **Easy Peasy recipes**  – for people who like to cook, eat and share their recipes with the public and supposed to be clear and user-friendly as well as responsive for different types of devices.
+This is a website of **Easy Peasy recipes**  – for people who like to cook, eat and share their recipes with the public, and supposed to be clear and user-friendly as well as responsive for different types of devices.
 
 ### Core audience of the website (CA):
 -  People who love to cook and always looking for new recipes online;
@@ -78,7 +78,7 @@ One of the main task was to make website pleasing to the eye. By this reason the
   - The website use customized Materialize navigation bar. It is a navbar with a logo placing on the top-left and menu items on the top-right. When browsing the website from mobile devices, menu item list becoming a burger-button with a half-screen right-side list. 
   - For user’s convenient navigation, navigation bar has a fixed position. 
 - **Footer**
-  - The website use customized Materialize Footer as well. The footer is divided on 2 blocks. First one includes short description of EasyPeasy website and social media icons with *hover effect* and active links to the social media pages. At the current moment, social media links lead to the home page of the particular social media websites. 
+  - The website use customized Materialize Footer as well. The footer is divided on 2 blocks. First one includes short description of Easy Peasy website and social media icons with *hover effect* and active links to the social media pages. At the current moment, social media links lead to the home page of the particular social media websites. 
   -  Second block has a dynamic copyright caption. Which updates the year, based on the current date.
 - **HOME PAGE**
     - Besides navigation bar and footer **Home page** consists of **3 sections**: 
@@ -120,7 +120,7 @@ One of the main task was to make website pleasing to the eye. By this reason the
     - The add recipe section is a form which should be fully filled to add recipe to the database and display on the website. In this developer to a Materialized form and customized it. 
         - The categories drop-down select box include 3 categories: Dessert, Main and Appetizer. User can choose the one which correspond to the dish he wants to upload.
         - Other steps include text input fields (except cootime, which is a number) which must be filled by user. 
-        - The final step is adding an image. This step can be completed by adding a url of a desirable image, which corresponds to the particular dish. If link is 'broken', 'plug-image' will be appeared.
+        - The final step is adding an image. This step can be completed by adding a url of a desirable image, which corresponds to the particular dish. If link is 'broken', 'backup image' will be displayed.
     - Upon submitting the form, data is passed into the 'recipes' database, hosted with MongoDB.
 - **EDIT RECIPE**
     - The edit recipe page renders the same form as the 'new recipe' page. The only difference that the form will have been already filled with data from database, which corresponds to the particular recipe.

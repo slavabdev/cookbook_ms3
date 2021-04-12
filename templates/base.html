@@ -58,33 +58,32 @@
 
                 <!--Mobile navigation-->
                 
-                <ul class="sidenav" id="mobile-demo">
-                    <img class="logo_img brand-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
-                    <li>
-                                <a href="{{ url_for('home') }}">Home</a>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('recipes') }}">Recipes</a>
-                            </li>
-                        {% if session.user %}
-                            <li>
-                                <a href="{{ url_for('new_recipe') }}">Add Recipe</a>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('profile', username=session['user']) }}">My profile</a>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('logout') }}">Logout</a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <a href="{{ url_for('register') }}">Register</a>
-                            </li>
-                             <li>
-                                <a href="{{ url_for('login') }}">Login</a>
-                            </li>
-                        {% endif %}
-                            
+                    <ul class="sidenav" id="mobile-demo">
+                        <li>
+                            <a href="{{ url_for('home') }}">Home</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('recipes') }}">Recipes</a>
+                        </li>
+                    {% if session.user %}
+                        <li>
+                            <a href="{{ url_for('new_recipe') }}">Add Recipe</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('profile', username=session['user']) }}">My profile</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ url_for('register') }}">Register</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('login') }}">Login</a>
+                        </li>
+                    {% endif %}
+                                
                 </ul>
             </header>
 
