@@ -11,7 +11,6 @@ if os.path.exists('env.py'):
 
 app = Flask(__name__) 
 
-
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -101,6 +100,7 @@ def login():
 
     return render_template('login.html')
 
+
 # Logout
 
 @app.route('/logout')
@@ -113,9 +113,10 @@ def logout():
     session.pop('user')
     return redirect(url_for('login'))
 
+
 # Profile page
 
-@app.route('/profile/<username>', methods=['GET','POST'])
+@app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
     '''
     function grab the session user's username from the db
@@ -127,9 +128,11 @@ def profile(username):
     user_recipes = list(
             mongo.db.recipes.find({"author": username}).sort([("_id", -1)]))
     if session['user']:
-        return render_template('profile.html', 
-        username=username, user_recipes=user_recipes)
+        return render_template(
+            'profile.html', username=username,
+            user_recipes=user_recipes)
     return redirect(url_for('login'))
+
 
 # Recipes page
 
@@ -140,19 +143,19 @@ def recipes():
     '''
     query = request.args.get('query')
     category = request.args.get('category')
-    #check if search query
+    # check if search query
     if query:
         recipes = list(mongo.db.recipes.find(
             {"$text": {"$search": query}}))
         print(query)
-    #check if filtered by category
+    # check if filtered by category
     elif category:
         recipes = list(mongo.db.recipes.find({'category': category}))
-    #check all recipes
+    # check all recipes
     else:
-        recipes = list(mongo.db.recipes.find())
-
+        recipes = list(mongo.db.recipes.find().sort("_id", -1))
     return render_template('recipes.html', recipes=recipes, category=category)
+
 
 # Single recipe
 
@@ -164,25 +167,28 @@ def recipe_page(recipe_id):
     '''
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     count = int(recipe['count'])
-    mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
-        {'$set': {'count': count +1 }})
+    mongo.db.recipes.update_one(
+        {"_id": ObjectId(recipe_id)},
+        {'$set': {'count': count + 1}})
     print(count)
-    return render_template('recipe-page.html', recipe=recipe, recipe_id=recipe_id)
+    return render_template(
+        'recipe-page.html', recipe=recipe,
+        recipe_id=recipe_id)
 
 
-# Add recipe 
+# Add recipe
 
 @app.route('/new-recipe', methods=['GET', 'POST'])
 def new_recipe():
     '''
     This function renders the new recipe page
     It push the recipe data to db if session user is true
-    otherwise it redirects user to register page and show an appropriate message
-    and redirects to recipes page
+    otherwise it redirects user to register page and
+    show an appropriate message and redirects to recipes page
     '''
     try:
         if session['user']:
-             username = mongo.db.users.find_one(
+            username = mongo.db.users.find_one(
                 {"username": session["user"]})["username"]
 
     except KeyError:
@@ -221,20 +227,20 @@ def edit_recipe(recipe_id):
     username = mongo.db.users.find_one(
         {'username': session['user']})['username']
     if request.method == 'POST':
-            submit = {
-                'category': request.form.get('category_name'),
-                'recipe_title': request.form.get('recipe_title'),
-                'cook_time': request.form.get('cook_time'),
-                'description': request.form.get('description'),
-                'ingredients': request.form.get('ingredients'),
-                'method': request.form.get('method'),
-                'image_url': request.form.get('image_url'),
-                'count': 0,
-                'author': session['user']
+        submit = {
+            'category': request.form.get('category_name'),
+            'recipe_title': request.form.get('recipe_title'),
+            'cook_time': request.form.get('cook_time'),
+            'description': request.form.get('description'),
+            'ingredients': request.form.get('ingredients'),
+            'method': request.form.get('method'),
+            'image_url': request.form.get('image_url'),
+            'count': 0,
+            'author': session['user']
             }
-            mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
-            flash('Your recipe successfully updated!')
-            return redirect(url_for('profile', username=username))
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash('Your recipe successfully updated!')
+        return redirect(url_for('profile', username=username))
     return render_template('edit-recipe.html', recipe=recipe)
 
 
@@ -243,7 +249,7 @@ def edit_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     '''
-    fuction remove recipe with particular id from the db 
+    fuction remove recipe with particular id from the db
     and redirect to profile page
     '''
     username = mongo.db.users.find_one(
@@ -254,7 +260,7 @@ def delete_recipe(recipe_id):
     return redirect(url_for('profile', username=username))
 
 
-#404 page 
+# 404 page
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -267,4 +273,4 @@ def page_not_found(e):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
-        debug = False)
+        debug=False)

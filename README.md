@@ -25,7 +25,6 @@ This is a website of **Easy Peasy recipes**  – for people who like to cook, ea
 - As a **new visitor**, I want to understand what this website about and what its purpose. 
 - As a **new visitor**, I want to easily navigate the site to get a content what I need;
 - As a **new visitor**, I want to see a website, which works properly on my device;
-- As a **new visitor**, I want to see a fully-filled website with up-to-date information;
 - As a **new visitor** I want to have an ability browse all the recipes published on the site;
 - As a **new visitor** I want to be able to filter recipes by categories and search them using keywords;
 - As a **new visitor**, I want to see a modern website with a pleasant colour palette.
@@ -39,9 +38,10 @@ This is a website of **Easy Peasy recipes**  – for people who like to cook, ea
 ### Design
 - Color Scheme:
 One of the main task was to make website pleasing to the eye. By this reason the accent were made on the following colors: 
-    - mustard [#ffd977](#);
-    - milky(`#fafafa`);
-    - dark grey (#212121). 
+    - ![#ffd977](https://via.placeholder.com/15/ffd977/?text=+) - `#ffd977`
+    - ![#ffd977](https://via.placeholder.com/15/fafafa/?text=+) - `#fafafa` 
+    - ![#ffd977](https://via.placeholder.com/15/212121/?text=+) - `#212121`  
+
 - Typorgaphy:
   - There are three fonts used in the website Montserrat,Roboto and Train One – convenient and frequently used in web design. 
     - The Train One were chosen for the navigation items.
@@ -103,8 +103,7 @@ One of the main task was to make website pleasing to the eye. By this reason the
     - The site uses authentication. Only users that have registered/signed up to the site can conduct the following actions:
         - Have an access to the personal account page (profile), where they can see the list of recipes added to the site by them.
         - Add recipes to the site / Edit & Delete recipes added by themselves.
-
-- **Profile page**
+- **PROFILE**
     - This page renders all the recipes made by particular user from database and display them on the Profile page.
     This page includes following actions:
         - Page get the user name from database (users collection) and display it on the top of the page (with greetings).
@@ -114,16 +113,16 @@ One of the main task was to make website pleasing to the eye. By this reason the
                 1. View recipe button link to the particular recipe page;
                 2.	Edit recipe button redirect to the ‘edit-edit’ recipe page;
                 3.	Delete button allows to delete the recipe from database.
-- **Recipe page**
+- **RECIPE**
     - This page renders the information on particular recipe  taken from the database.
     - All recipe details, including image, are pulled from the database and rendered in the separate parts of the page. Sections separates by headings and border lines. 
-- **New Recipe Page**
+- **NEW RECIPE**
     - The add recipe section is a form which should be fully filled to add recipe to the database and display on the website. In this developer to a Materialized form and customized it. 
         - The categories drop-down select box include 3 categories: Dessert, Main and Appetizer. User can choose the one which correspond to the dish he wants to upload.
         - Other steps include text input fields (except cootime, which is a number) which must be filled by user. 
         - The final step is adding an image. This step can be completed by adding a url of a desirable image, which corresponds to the particular dish. If link is 'broken', 'plug-image' will be appeared.
     - Upon submitting the form, data is passed into the 'recipes' database, hosted with MongoDB.
-- **Edit Recipe Page**
+- **EDIT RECIPE**
     - The edit recipe page renders the same form as the 'new recipe' page. The only difference that the form will have been already filled with data from database, which corresponds to the particular recipe.
     - Users can 'edit' a recipe which was added to the site by them.
     - Users can then edit all the data which they want and submit changes to the database by clicking 'Submit Changes'.

@@ -8,7 +8,7 @@
             <li>
             <img
                 class="img-responsive"
-                src="{{ url_for('static', filename='img/slider.jpg') }}"/>
+                src="{{ url_for('static', filename='img/slider.jpg') }}" alt="slaide_1"/>
             <div class="caption left-align">
                 <h3>Upload your recipes</h3>
                 <h5 class="light grey-text text-lighten-3">
@@ -25,7 +25,7 @@
             <li>
             <img
                 class="img-responsive"
-                src="{{ url_for('static', filename='img/slider2.jpg') }}"/>
+                src="{{ url_for('static', filename='img/slider2.jpg') }}" alt="slide_2"/>
             <div class="caption left-align">
                 <h3>Check our recipes</h3>
                 <h5 class="light grey-text text-lighten-3">Click the button below and check our most popular recipes</h5>
@@ -49,7 +49,7 @@
                     <div class="card-image waves-effect waves-block waves-light">
                         <img
                             class="activator"
-                            src="{{ url_for('static', filename='img/cat_app.jpg') }}"/>
+                            src="{{ url_for('static', filename='img/cat_app.jpg') }}" alt="Appetizers"/>
                     </div>
                     <div class="card-content">
                         <span class="card-title grey-text text-darken-4">Appetizers </span>
@@ -66,7 +66,7 @@
                     <div class="card-image waves-effect waves-block waves-light">
                         <img
                             class="activator"
-                            src="{{ url_for('static', filename='img/cat_main1.jpg') }}"/>
+                            src="{{ url_for('static', filename='img/cat_main1.jpg') }}" alt="Mains"//>
                     </div>
                     <div class="card-content">
                         <span class="card-title grey-text text-darken-4">Main courses </span>
@@ -85,7 +85,7 @@
                     <div class="card-image waves-effect waves-block waves-light">
                         <img
                             class="activator"
-                            src="{{ url_for('static', filename='img/cat_des.jpg') }}"/>
+                            src="{{ url_for('static', filename='img/cat_des.jpg') }}" alt="Desserts"/>
                     </div>
                     <div class="card-content">
                         <span class="card-title grey-text text-darken-4">Desserts </span>
@@ -115,7 +115,7 @@
                             <img
                                 class="activator"
                                 src="{{recipe.image_url}}"
-                                onError="this.src='{{ url_for('static', filename='img/no-img.jpg') }}'"/>
+                                onError="this.src='{{ url_for('static', filename='img/no-img.jpg') }}'" alt="recipe_img"/>
                         </div>
                         <div class="card-content">
                             <span class="card-title truncate grey-text text-darken-4">
