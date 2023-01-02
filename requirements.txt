@@ -6,7 +6,7 @@ Flask-PyMongo==2.3.0
 future @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot2/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/future-0.18.2-py3-none-any.whl
 importlib-metadata==6.0.0
 itsdangerous==2.1.2
-Jinja2==3.1.2
+Jinja2==3.0.3
 macholib @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot2/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/macholib-1.15.2-py2.py3-none-any.whl
 MarkupSafe==2.1.1
 pymongo==4.3.3
